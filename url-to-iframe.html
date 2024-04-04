@@ -37,13 +37,11 @@
             <label for="urlInput">Paste your Google resource URL:</label>
             <input type="text" id="urlInput" placeholder="https://example.com" aria-required="true">
             <button onclick="generateString()" aria-label="Generate the embedding code for the entered URL">Generate Embedding Code</button>
-            <!-- Added button to trigger sendToCanvas -->
-            <button onclick="sendToCanvas()" id="insertButton">Insert into Canvas</button>
         </div>
         <div class="result-container">
-            <label for="result">The iframe code will appear here. Use the 'Insert into Canvas' button after generating.</label>
+            <label for="result">Paste the following text into the "Embed Content" tool in CourseWorks (Canvas):</label>
             <textarea id="result" readonly aria-describedby="copyInstruction"></textarea>
-            <p id="copyInstruction">Use the 'Insert into Canvas' button to add the iframe directly into your RCE.</p>
+            <p id="copyInstruction">Use Ctrl+C or right-click to copy the iframe code displayed above.</p>
         </div>
     </div>
 
@@ -56,16 +54,6 @@
             } else {
                 alert('Please enter a URL.');
                 document.getElementById('urlInput').focus();
-            }
-        }
-
-        // Function to post the generated iframe code back to the Canvas page
-        function sendToCanvas() {
-            const iframeCode = document.getElementById('result').value;
-            if(iframeCode) {
-                window.parent.postMessage({ action: 'insertIframe', code: iframeCode }, '*');
-            } else {
-                alert('No iframe code generated. Please generate the code first.');
             }
         }
     </script>
