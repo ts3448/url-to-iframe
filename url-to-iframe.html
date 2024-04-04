@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>URL to iframe Converter</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="urlInput" placeholder="Enter your URL here">
+        <button onclick="generateString()">Generate</button>
+    </div>
+    <p id="result"></p>
+
+    <script>
+        function generateString() {
+            var url = document.getElementById('urlInput').value;
+            var resultString = `<iframe src="${url}" width="100%" height="600"></iframe>`;
+            document.getElementById('result').textContent = resultString;
+        }
+    </script>
+</body>
+</html>
