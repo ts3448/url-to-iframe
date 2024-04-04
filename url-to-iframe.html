@@ -7,8 +7,12 @@
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
+            display: flex;
+            justify-content: center; /* Centers the tool horizontally */
         }
         .form-container, .result-container {
+            max-width: 600px; /* Maximum width set for the containers */
+            width: 100%; /* Ensures it takes full width up to the max-width */
             display: flex;
             flex-direction: column;
             gap: 10px; /* Creates space between elements */
@@ -24,25 +28,21 @@
             height: 100px; /* Adjust based on your needs */
             resize: vertical; /* Allows vertical resizing */
         }
-        @media (max-width: 600px) {
-            /* Styles for screens smaller than 600px */
-            .form-container, .result-container {
-                width: 100%;
-            }
-        }
     </style>
 </head>
 <body>
-    <div class="form-container" role="form" aria-labelledby="formInstructions">
-        <p id="formInstructions">Please paste your Google resource URL in the input field below and click on "Generate Embedding Code" to create the iframe code.</p>
-        <label for="urlInput">Paste your Google resource URL:</label>
-        <input type="text" id="urlInput" placeholder="https://example.com" aria-required="true">
-        <button onclick="generateString()" aria-label="Generate the embedding code for the entered URL">Generate Embedding Code</button>
-    </div>
-    <div class="result-container">
-        <label for="result">Paste the following text into the "Embed Content" tool in CourseWorks (Canvas):</label>
-        <textarea id="result" readonly aria-describedby="copyInstruction"></textarea>
-        <p id="copyInstruction">Use Ctrl+C or right-click to copy the iframe code displayed above.</p>
+    <div class="wrapper">
+        <div class="form-container" role="form" aria-labelledby="formInstructions">
+            <p id="formInstructions">Please paste your Google resource URL in the input field below and click on "Generate Embedding Code" to create the iframe code.</p>
+            <label for="urlInput">Paste your Google resource URL:</label>
+            <input type="text" id="urlInput" placeholder="https://example.com" aria-required="true">
+            <button onclick="generateString()" aria-label="Generate the embedding code for the entered URL">Generate Embedding Code</button>
+        </div>
+        <div class="result-container">
+            <label for="result">Paste the following text into the "Embed Content" tool in CourseWorks (Canvas):</label>
+            <textarea id="result" readonly aria-describedby="copyInstruction"></textarea>
+            <p id="copyInstruction">Use Ctrl+C or right-click to copy the iframe code displayed above.</p>
+        </div>
     </div>
 
     <script>
